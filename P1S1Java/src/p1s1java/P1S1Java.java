@@ -5,17 +5,10 @@
  */
 package p1s1java;
 
-/**
- *
- * @author escaleranm
- */
+
 public class P1S1Java {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
-    
 }

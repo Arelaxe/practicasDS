@@ -10,5 +10,12 @@ package p1s1java;
  * @author escaleranm
  */
 public abstract class Bicicleta {
+    private int identificador;
     
+    public Bicicleta(){
+    }
+    
+    public void setIdentificador(int id){
+        identificador = id;
+    }
 }

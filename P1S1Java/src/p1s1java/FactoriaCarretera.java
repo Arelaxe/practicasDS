@@ -12,11 +12,15 @@ package p1s1java;
 public class FactoriaCarretera implements FactoriaCarreraYBicicleta {
     @Override
     public Bicicleta crearBicicleta(){
-        return null;
+        BicicletaCarretera bici = new BicicletaCarretera();
+        
+        return bici;
     }
     
     @Override
-    public Carrera crearCarrera(){
-        return null;
+    public Carrera crearCarrera(int num){
+        CarreraCarretera carrera = new CarreraCarretera(num);
+        
+        return carrera;
     }
 }

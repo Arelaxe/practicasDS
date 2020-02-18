@@ -10,6 +10,6 @@ package p1s1java;
  * @author escaleranm
  */
 public interface FactoriaCarreraYBicicleta {
-    public abstract Carrera crearCarrera();
+    public abstract Carrera crearCarrera(int num);
     public abstract Bicicleta crearBicicleta();
 }

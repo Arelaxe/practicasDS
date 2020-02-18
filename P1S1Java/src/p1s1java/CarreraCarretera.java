@@ -10,5 +10,12 @@ package p1s1java;
  * @author escaleranm
  */
 public class CarreraCarretera extends Carrera {
-    
+    public CarreraCarretera (int num){
+        super(num);
+        for (int i=0; i<num; i++){
+            BicicletaCarretera bici = new BicicletaCarretera();
+            bici.setIdentificador(i);
+            AniadeBicicleta(bici);
+        }
+    }
 }

@@ -5,10 +5,18 @@
  */
 package p1s1java;
 
-/**
- *
- * @author escaleranm
- */
+import java.util.*;
+
 public abstract class Carrera {
+    private ArrayList<Bicicleta> bicicletas = new ArrayList<>();
+    private int numeroBicicletas;
+    
+    public Carrera(int num){
+        numeroBicicletas = num;
+    }
+    
+    public void AniadeBicicleta(Bicicleta bici){
+        bicicletas.add(bici);
+    }
     
 }
