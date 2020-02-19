@@ -10,5 +10,6 @@ package ds_s1p1;
  * @author escaleranm
  */
 public class BicicletaCarretera extends Bicicleta {
+    public BicicletaCarretera(){}
     
 }

@@ -11,15 +11,15 @@ package ds_s1p1;
  */
 public class FactoriaCarretera implements FactoriaCarreraYBicicleta {
     @Override
-    public Bicicleta crearBicicleta(){
+    public BicicletaCarretera crearBicicleta(){
         BicicletaCarretera bici = new BicicletaCarretera();
         
         return bici;
     }
     
     @Override
-    public Carrera crearCarrera(int num){
-        CarreraCarretera carrera = new CarreraCarretera(num);
+    public CarreraCarretera crearCarrera(int num){
+        CarreraCarretera carrera = new CarreraCarretera(num, this);
         
         return carrera;
     }

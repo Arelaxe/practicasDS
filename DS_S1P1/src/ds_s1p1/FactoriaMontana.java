@@ -10,13 +10,18 @@ package ds_s1p1;
  * @author escaleranm
  */
 public class FactoriaMontana implements FactoriaCarreraYBicicleta {
+    
     @Override
-    public Bicicleta crearBicicleta(){
-        return null;
+    public BicicletaMontana crearBicicleta(){
+        BicicletaMontana bici = new BicicletaMontana();
+        
+        return bici;
     }
     
     @Override
-    public Carrera crearCarrera(int num){
-        return null;
+    public CarreraMontana crearCarrera(int num){
+        CarreraMontana carrera = new CarreraMontana(num, this);
+        
+        return carrera;
     }
 }

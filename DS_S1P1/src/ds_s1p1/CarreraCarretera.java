@@ -10,12 +10,9 @@ package ds_s1p1;
  * @author escaleranm
  */
 public class CarreraCarretera extends Carrera {
-    public CarreraCarretera (int num){
-        super(num);
-        for (int i=0; i<num; i++){
-            BicicletaCarretera bici = new BicicletaCarretera();
-            bici.setIdentificador(i);
-            AniadeBicicleta(bici);
-        }
+    public CarreraCarretera (int num, FactoriaCarretera fac){
+        super(num, fac);
+        
+        porcentajeRetiradas=0.1;
     }
 }
