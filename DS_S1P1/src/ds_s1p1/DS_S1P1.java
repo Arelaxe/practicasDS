@@ -12,8 +12,8 @@ public class DS_S1P1{
         FactoriaCarretera fac_car = new FactoriaCarretera();
         FactoriaMontana fac_mon = new FactoriaMontana();
         
-        CarreraCarretera carrera_car = fac_car.crearCarrera(50);
-        CarreraMontana carrera_mon = fac_mon.crearCarrera(50);
+        CarreraCarretera carrera_car = fac_car.crearCarrera(10);
+        CarreraMontana carrera_mon = fac_mon.crearCarrera(10);
         
         carrera_car.start();
         carrera_mon.start();
