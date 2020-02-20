@@ -10,5 +10,8 @@ package ds_s1p1;
  * @author escaleranm
  */
 public class BicicletaMontana extends Bicicleta {
-    public BicicletaMontana(){}
+    
+    public BicicletaMontana(FactoriaMontana fac){
+        super(fac);
+    }
 }

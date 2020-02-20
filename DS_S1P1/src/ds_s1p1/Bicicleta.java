@@ -10,9 +10,17 @@ package ds_s1p1;
  * @author escaleranm
  */
 public abstract class Bicicleta extends Thread{
-    private int identificador;
+    private Integer identificador;
+    private double tiempo;
+    FactoriaCarreraYBicicleta factoria;
     
     public Bicicleta(){
+        tiempo=-1;
+    }
+    
+    public Bicicleta(FactoriaCarreraYBicicleta factoria){
+        this.factoria = factoria;
+        tiempo=-1;
     }
     
     public void setIdentificador(int id){
@@ -20,7 +28,7 @@ public abstract class Bicicleta extends Thread{
     }
     
     public void inicio(){
-        double tiempo = Math.random()*(60-5)+5;
+        tiempo = Math.random()*(60-5)+5;
         
         try {
             Thread.sleep((long)tiempo*1000);
@@ -28,8 +36,14 @@ public abstract class Bicicleta extends Thread{
             System.out.println("Interrumpido");
         }
         
-        
-        System.out.println("La bicicleta "+identificador+" ha llegado ("+tiempo+" seg.)");
+        if (factoria instanceof FactoriaCarretera)
+            System.out.println("La bicicleta "+identificador+" de carretera ha llegado ("+tiempo+" seg.)");
+        else
+            System.out.println("La bicicleta "+identificador+" de montaña ha llegado ("+tiempo+" seg.)");
+    }
+    
+    public double getTiempo(){
+        return (tiempo);
     }
     
     @Override

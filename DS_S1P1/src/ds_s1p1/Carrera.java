@@ -22,7 +22,7 @@ public abstract class Carrera extends Thread{
         
         if (fac instanceof FactoriaCarretera){
             for (Integer i=0; i<num; i++){
-                BicicletaCarretera bici = new BicicletaCarretera();
+                BicicletaCarretera bici = (BicicletaCarretera) fac.crearBicicleta();
                 bici.setIdentificador(i);
                 AniadeBicicleta(bici);
                 retiradas.add(false);
@@ -30,7 +30,7 @@ public abstract class Carrera extends Thread{
         }
         if (fac instanceof FactoriaMontana){
             for (Integer i=0; i<num; i++){
-                BicicletaMontana bici = new BicicletaMontana();
+                BicicletaMontana bici = (BicicletaMontana) fac.crearBicicleta();
                 bici.setIdentificador(i);
                 AniadeBicicleta(bici);
                 retiradas.add(false);
@@ -57,7 +57,6 @@ public abstract class Carrera extends Thread{
         }
         
         int numRetiradas = (int) Math.floor(numeroBicicletas*porcentajeRetiradas);
-        System.out.println("Se han retirado "+numRetiradas+" bicicletas");
         
         int i=0;
         while (i<numRetiradas){
@@ -65,13 +64,11 @@ public abstract class Carrera extends Thread{
             
             if (!retiradas.get(a_retirar)){
                 retiradas.set(a_retirar,true);
-                if (fac instanceof FactoriaCarretera)
-                    System.out.println("Se ha retirado la bicicleta "+a_retirar+" de carretera");
-                else
-                    System.out.println("Se ha retirado la bicicleta "+a_retirar+" de montaña");
                 i++;
             }
         }
+        
+        double to_retirada = Math.random()*(60-5)+5;
         
         for(int j=0; j<numeroBicicletas; j++){
             if(!retiradas.get(j)){
@@ -79,12 +76,47 @@ public abstract class Carrera extends Thread{
             }
         }
         
-        try {
-            Thread.sleep(60*1000);
-        } catch (InterruptedException ex) {
-            System.out.println("Interrumpido");
+        Boolean ya_retiradas=false;
+        
+        for (int j=0; j<60; j++){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                System.out.println("Interrumpido");
+            }
+            
+            System.out.println("\tSEGUNDO "+j);
+            
+            for (int k=0; k<numeroBicicletas; k++){
+                
+                if (!retiradas.get(k) && (j<bicicletas.get(k).getTiempo())){
+                    if (factoria instanceof FactoriaCarretera)    
+                        System.out.println("La bicicleta "+k+" de carretera sigue corriendo");
+                    else
+                        System.out.println("La bicicleta "+k+" de montaña sigue corriendo");
+                }
+                
+                else if (retiradas.get(k) && !ya_retiradas) {
+                    if (j<to_retirada)
+                        if (factoria instanceof FactoriaCarretera)
+                            System.out.println("La bicicleta "+k+" de carretera sigue corriendo");
+                        else
+                            System.out.println("La bicicleta "+k+" de montaña sigue corriendo");
+                    else{
+                        if (factoria instanceof FactoriaCarretera)
+                            System.out.println("La bicicleta "+k+" de carretera se ha retirado");
+                        else
+                            System.out.println("La bicicleta "+k+" de montaña se ha retirado");
+                        
+                        ya_retiradas=true;
+                    }
+                }
+            }
         }
-        System.out.println("Ha finalizado la carrera!");
+        if (factoria instanceof FactoriaCarretera)
+            System.out.println("Ha finalizado la carrera de carretera!");
+        else
+            System.out.println("Ha finalizado la carrera de montaña!");
     }
     
     @Override
