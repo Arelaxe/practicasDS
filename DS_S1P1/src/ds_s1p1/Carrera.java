@@ -36,26 +36,6 @@ public abstract class Carrera extends Thread{
                 retiradas.add(false);
             }
         }
-        
-    }
-    
-    public void AniadeBicicleta(Bicicleta bici){
-        bicicletas.add(bici);
-    }
-    
-    public void IniciarCarrera(FactoriaCarreraYBicicleta fac){
-        if (fac instanceof FactoriaCarretera){
-            System.out.println("Empieza la carrera de carretera!");
-            System.out.println("Van a participar "+numeroBicicletas+" bicicletas en la carrera de carretera");
-            
-            
-        }
-        else{
-            System.out.println("Empieza la carrera de montaña!");
-            System.out.println("Van a participar "+numeroBicicletas+" bicicletas en la carrera de montaña");
-            
-        }
-        
         int numRetiradas = (int) Math.floor(numeroBicicletas*porcentajeRetiradas);
         
         int i=0;
@@ -66,6 +46,22 @@ public abstract class Carrera extends Thread{
                 retiradas.set(a_retirar,true);
                 i++;
             }
+        }
+    }
+    
+    public void AniadeBicicleta(Bicicleta bici){
+        bicicletas.add(bici);
+    }
+    
+    public void IniciarCarrera(FactoriaCarreraYBicicleta fac){
+        if (fac instanceof FactoriaCarretera){
+            System.out.println("Empieza la carrera de carretera!");
+            System.out.println("Van a participar "+numeroBicicletas+" bicicletas en la carrera de carretera");
+        }
+        else{
+            System.out.println("Empieza la carrera de montaña!");
+            System.out.println("Van a participar "+numeroBicicletas+" bicicletas en la carrera de montaña");
+            
         }
         
         double to_retirada = Math.random()*(60-5)+5;
