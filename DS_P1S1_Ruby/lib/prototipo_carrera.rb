@@ -78,7 +78,7 @@ module DS_P1S1_Ruby
             if (!@retiradas.at(id_retirada) && !@terminadas.at(id_retirada))
               @retiradas[i] = true
               ya_retiradas += 1
-              puts "Se ha retirado la bicicleta"+i.to_s+"\n"
+              puts "Se ha retirado la bicicleta "+i.to_s+"\n"
             end
           end
         end
