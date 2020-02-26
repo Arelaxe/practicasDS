@@ -1,7 +1,12 @@
-#include "VisitanteEquipo.hpp"
+#ifndef TARJETA
+#define TARJETA
 
-class Tarjeta{
+#include "ComponenteEquipo.hpp"
+
+class Tarjeta : ComponenteEquipo{
     public:
     Tarjeta();
     void aceptarVisitante (VisitanteEquipo v);
 };
+
+#endif

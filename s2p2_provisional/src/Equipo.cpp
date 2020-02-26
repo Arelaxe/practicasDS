@@ -1,7 +1,2 @@
-#include <vector>
-#include "ComponenteEquipo.hpp"
+#include "Equipo.hpp"
 
-class Equipo{
-    private:
-    vector<ComponenteEquipo> componentes;
-}

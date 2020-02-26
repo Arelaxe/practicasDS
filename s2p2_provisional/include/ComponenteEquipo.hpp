@@ -1,5 +1,10 @@
+#ifndef COMPONENTEEQUIPO
+#define COMPONENTEEQUIPO
+
 #include "VisitanteEquipo.hpp"
 #include <string>
+
+using namespace std;
 
 class ComponenteEquipo{
     private:
@@ -12,3 +17,5 @@ class ComponenteEquipo{
     void setNombre (string n);
     string getNombre () const;
 };
+
+#endif

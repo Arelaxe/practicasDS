@@ -1,7 +1,14 @@
-#include "VisitanteEquipo.hpp"
+#ifndef DISCO
+#define DISCO
 
-class Disco{
+#include "ComponenteEquipo.hpp"
+
+using namespace std;
+
+class Disco : ComponenteEquipo{
     public:
     Disco();
     void aceptarVisitante (VisitanteEquipo v);
 };
+
+#endif

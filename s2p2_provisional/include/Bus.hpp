@@ -1,7 +1,12 @@
-#include "VisitanteEquipo.hpp"
+#ifndef BUS
+#define BUS
 
-class Bus{
+#include "ComponenteEquipo.hpp"
+
+class Bus : ComponenteEquipo{
     public:
     Bus();
     void aceptarVisitante (VisitanteEquipo v);
 };
+
+#endif
