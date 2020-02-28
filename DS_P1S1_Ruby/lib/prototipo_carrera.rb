@@ -59,7 +59,7 @@ module DS_P1S1_Ruby
       
       num_retiradas = @num_bicicletas * @porcentaje_retirada
       
-      segundo_retirada = rand(60);
+      segundo_retirada = rand(1..29);
       
       @bicicletas.each do |bicicleta|
         bicicleta.correr
@@ -76,16 +76,16 @@ module DS_P1S1_Ruby
             id_retirada = rand(@num_bicicletas)
             
             if (!@retiradas.at(id_retirada) && !@terminadas.at(id_retirada))
-              @retiradas[i] = true
+              @retiradas[id_retirada] = true
               ya_retiradas += 1
-              puts "Se ha retirado la bicicleta "+i.to_s+"\n"
+              puts "Se ha retirado la bicicleta "+@bicicletas[id_retirada].identificador.to_s+"\n"
             end
           end
         end
         
         @bicicletas.each do |bicicleta|
           if (i==bicicleta.tiempo_llegada)
-            puts "Ha llegado a la meta la bicicleta "+i.to_s+"\n"
+            puts "Ha llegado a la meta la bicicleta "+bicicleta.identificador.to_s+"\n"
             @terminadas[i] = true
           end
         end

@@ -27,19 +27,18 @@ public abstract class Bicicleta extends Thread{
         identificador = id;
     }
     
+    public int getIdentificador(){
+        return(identificador);
+    }
+    
     public void inicio(){
-        tiempo = Math.random()*(60-5)+5;
+        tiempo = (int) Math.floor(Math.random()*(60-30+1)+30);
         
         try {
             Thread.sleep((long)tiempo*1000);
         } catch (InterruptedException ex) {
             System.out.println("Interrumpido");
         }
-        
-        if (factoria instanceof FactoriaCarretera)
-            System.out.println("La bicicleta "+identificador+" de carretera ha llegado ("+tiempo+" seg.)");
-        else
-            System.out.println("La bicicleta "+identificador+" de montaña ha llegado ("+tiempo+" seg.)");
     }
     
     public double getTiempo(){
