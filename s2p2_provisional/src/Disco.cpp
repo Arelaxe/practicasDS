@@ -4,5 +4,5 @@ Disco::Disco(){
 }
 
 void Disco::aceptarVisitante(VisitanteEquipo v) {
-    v.visitarDisco(this);
+    v.visitarDisco(*this);
 }

@@ -4,5 +4,5 @@ Bus::Bus(){
 }
 
 void Bus::aceptarVisitante (VisitanteEquipo v){
-    v.visitarBus(this);
+    v.visitarBus(*this);
 }

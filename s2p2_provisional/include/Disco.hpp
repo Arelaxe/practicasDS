@@ -1,11 +1,14 @@
 #ifndef DISCO
 #define DISCO
 
-#include "ComponenteEquipo.hpp"
-
 using namespace std;
 
-class Disco : ComponenteEquipo{
+#include "ComponenteEquipo.hpp"
+#include "VisitanteEquipo.hpp"
+class VisitanteEquipo;
+class ComponenteEquipo;
+
+class Disco : public ComponenteEquipo{
     public:
     Disco();
     void aceptarVisitante (VisitanteEquipo v);

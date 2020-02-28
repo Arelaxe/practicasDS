@@ -1,17 +1,19 @@
 #ifndef COMPONENTEEQUIPO
 #define COMPONENTEEQUIPO
 
-#include "VisitanteEquipo.hpp"
 #include <string>
-
 using namespace std;
+
+class VisitanteEquipo;
+class VisitantePrecio;
+class VisitantePrecioDetalle;
 
 class ComponenteEquipo{
     private:
     double precio;
     string nombre;
     public:
-    virtual void aceptarVisitante(VisitanteEquipo v);
+    void aceptarVisitante(VisitanteEquipo& v);
     void setPrecio (double p);
     double getPrecio () const;
     void setNombre (string n);

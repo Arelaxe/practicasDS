@@ -4,5 +4,5 @@ Tarjeta::Tarjeta(){
 }
 
 void Tarjeta::aceptarVisitante(VisitanteEquipo v) {
-    v.visitarTarjeta(this);
+    v.visitarTarjeta(*this);
 }

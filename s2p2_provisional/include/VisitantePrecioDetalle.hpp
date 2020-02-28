@@ -1,6 +1,7 @@
+#include "ComponenteEquipo.hpp"
 #include "VisitanteEquipo.hpp"
 
-class VisitantePrecioDetalle : VisitanteEquipo{
+class VisitantePrecioDetalle : public VisitanteEquipo{
     public:
     void visitarDisco(Disco & d);
     void visitarBus(Bus & b);

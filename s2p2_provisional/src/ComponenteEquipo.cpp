@@ -1,6 +1,6 @@
 #include "ComponenteEquipo.hpp"
 
-void ComponenteEquipo::aceptarVisitante(VisitanteEquipo v){
+void ComponenteEquipo::aceptarVisitante(VisitanteEquipo &v){
 }
 
 void ComponenteEquipo::setPrecio(double p){

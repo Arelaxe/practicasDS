@@ -17,10 +17,10 @@ $(OBJ)/Equipo.o: $(SRC)/Equipo.cpp $(INC)/Equipo.hpp $(INC)/ComponenteEquipo.hpp
 $(OBJ)/ComponenteEquipo.o: $(SRC)/ComponenteEquipo.cpp $(INC)/VisitanteEquipo.hpp $(INC)/ComponenteEquipo.hpp
 	g++ -c -o $(OBJ)/ComponenteEquipo.o $(SRC)/ComponenteEquipo.cpp -I$(INC) -std=c++11
 
-$(OBJ)/VisitanteEquipo.o: $(SRC)/VisitanteEquipo.cpp $(INC)/VisitanteEquipo.hpp $(INC)/Disco.hpp $(INC)/Tarjeta.hpp $(INC)/Bus.hpp
+$(OBJ)/VisitanteEquipo.o: $(SRC)/VisitanteEquipo.cpp $(INC)/VisitanteEquipo.hpp $(INC)/Disco.hpp $(INC)/Tarjeta.hpp $(INC)/Bus.hpp $(INC)/ComponenteEquipo.hpp
 	g++ -c -o $(OBJ)/VisitanteEquipo.o $(SRC)/VisitanteEquipo.cpp -I$(INC) -std=c++11
 
-$(OBJ)/VisitantePrecio.o: $(SRC)/VisitantePrecio.cpp $(INC)/VisitantePrecio.hpp $(INC)/VisitanteEquipo.hpp
+$(OBJ)/VisitantePrecio.o: $(SRC)/VisitantePrecio.cpp $(INC)/VisitantePrecio.hpp $(INC)/VisitanteEquipo.hpp $(INC)/ComponenteEquipo.hpp
 	g++ -c -o $(OBJ)/VisitantePrecio.o $(SRC)/VisitantePrecio.cpp -I$(INC) -std=c++11
 
 $(OBJ)/VisitantePrecioDetalle.o: $(SRC)/VisitantePrecioDetalle.cpp $(INC)/VisitantePrecioDetalle.hpp $(INC)/VisitanteEquipo.hpp

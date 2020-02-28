@@ -1,6 +1,7 @@
+#include "ComponenteEquipo.hpp"
 #include "VisitanteEquipo.hpp"
 
-class VisitantePrecio : VisitanteEquipo{
+class VisitantePrecio : public VisitanteEquipo{
     private:
     double coste_total;
     public:
