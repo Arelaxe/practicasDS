@@ -13,7 +13,7 @@ class ComponenteEquipo{
     double precio;
     string nombre;
     public:
-    void aceptarVisitante(VisitanteEquipo& v);
+    virtual void aceptarVisitante(VisitanteEquipo& v);
     void setPrecio (double p);
     double getPrecio () const;
     void setNombre (string n);

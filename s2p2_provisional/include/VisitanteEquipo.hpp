@@ -12,9 +12,9 @@ class Bus;
 
 class VisitanteEquipo{
     public:
-    void visitarDisco(Disco & d);
-    void visitarTarjeta(Tarjeta & t);
-    void visitarBus(Bus & b);
+    virtual void visitarDisco(Disco & d);
+    virtual void visitarTarjeta(Tarjeta & t);
+    virtual void visitarBus(Bus & b);
 };
 
 #endif
