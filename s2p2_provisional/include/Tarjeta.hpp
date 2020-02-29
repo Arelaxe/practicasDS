@@ -8,8 +8,8 @@ class ComponenteEquipo;
 
 class Tarjeta : public ComponenteEquipo{
     public:
-    Tarjeta();
-    void aceptarVisitante (VisitanteEquipo v);
+    Tarjeta(string nombre);
+    void aceptarVisitante (VisitanteEquipo * v);
 };
 
 #endif

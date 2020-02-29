@@ -10,8 +10,8 @@ class ComponenteEquipo;
 
 class Disco : public ComponenteEquipo{
     public:
-    Disco();
-    void aceptarVisitante (VisitanteEquipo v);
+    Disco(string nombre);
+    void aceptarVisitante (VisitanteEquipo * v);
 };
 
 #endif

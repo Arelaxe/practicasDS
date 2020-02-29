@@ -1,8 +1,9 @@
 #include "Tarjeta.hpp"
 
-Tarjeta::Tarjeta(){
+Tarjeta::Tarjeta(string n){
+    setNombre(n);
 }
 
-void Tarjeta::aceptarVisitante(VisitanteEquipo v) {
-    v.visitarTarjeta(*this);
+void Tarjeta::aceptarVisitante(VisitanteEquipo * v) {
+    v->visitarTarjeta(*this);
 }
