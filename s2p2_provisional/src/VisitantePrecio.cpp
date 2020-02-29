@@ -5,17 +5,17 @@ VisitantePrecio::VisitantePrecio(){
 
 void VisitantePrecio::visitarDisco(Disco & d) {
     d.setPrecio(precioComponente(d.getNombre()));
-    coste_total += d.getPrecio();
+    if (d.getPrecio() > 0)  coste_total += d.getPrecio();
 }
 
 void VisitantePrecio::visitarTarjeta(Tarjeta & t) {
     t.setPrecio(precioComponente(t.getNombre()));
-    coste_total += t.getPrecio();
+    if (t.getPrecio() > 0)  coste_total += t.getPrecio();
 }
 
 void VisitantePrecio::visitarBus(Bus & b) {
     b.setPrecio(precioComponente(b.getNombre()));
-    coste_total += b.getPrecio();
+    if (b.getPrecio() > 0)  coste_total += b.getPrecio();
 }
 
 double VisitantePrecio::precioTotal() const {
