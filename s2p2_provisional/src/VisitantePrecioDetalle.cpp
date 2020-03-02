@@ -28,7 +28,7 @@ void VisitantePrecioDetalle::mostrarDetalles() {
     for (int i=0; i<componentes.size(); i++){
         cout << "Componente " << i+1 << ": " << componentes[i] << " - ";
 
-        if ((precio = (1-descuento)*precioComponente(componentes[i])) != -1)
+        if ((precio = (1-descuento)*precioComponente(componentes[i])) >= 0)
             cout << precio << endl;
         else 
             cout << "sin identificar" << endl;
