@@ -5,7 +5,7 @@ class VisitantePrecio : public VisitanteEquipo{
     private:
     double coste_total;
     public:
-    VisitantePrecio();
+    VisitantePrecio(TipoVisitante t);
     void visitarDisco(Disco & d);
     void visitarBus(Bus & b);
     void visitarTarjeta(Tarjeta & t);

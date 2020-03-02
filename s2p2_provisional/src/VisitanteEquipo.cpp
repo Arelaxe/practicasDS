@@ -1,6 +1,15 @@
 #include "VisitanteEquipo.hpp"
 
-VisitanteEquipo::VisitanteEquipo (){
+
+VisitanteEquipo::VisitanteEquipo (TipoVisitante t){
+
+    if (t == TipoVisitante::TNormal)
+        descuento=0;
+    else if (t == TipoVisitante::TEstudiante)
+        descuento=0.1;
+    else if (t == TipoVisitante::TMayorista)
+        descuento=0.15;
+
     catalogo.insert(pair<string, double>("Disco SAS",10.2));
     catalogo.insert(pair<string, double>("Disco SATA",10.4));
     catalogo.insert(pair<string, double>("Disco SCSI",10.8));

@@ -6,15 +6,17 @@
 
 using namespace std;
 
-enum Tipo {TDisco, TTarjeta, TBus};
+enum TipoComponente {TDisco, TTarjeta, TBus};
 
 class Equipo{
     private:
-    vector<pair<Tipo, ComponenteEquipo >> componentes;
+    vector<pair<TipoComponente, ComponenteEquipo >> componentes;
+    double descuento;
 
     public:
     void insertarComponente(Disco d);
     void insertarComponente(Bus b);
     void insertarComponente(Tarjeta t);
-    vector<pair<Tipo, ComponenteEquipo>> getComponentes() const;
+    vector<pair<TipoComponente, ComponenteEquipo>> getComponentes() const;
+    double getDescuento() const;
 };

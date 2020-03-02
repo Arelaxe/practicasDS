@@ -13,13 +13,16 @@ class Disco;
 class Tarjeta;
 class Bus;
 
+enum TipoVisitante {TNormal, TEstudiante, TMayorista};
+
 class VisitanteEquipo{
     private:
     unordered_map<string,double> catalogo;
     protected:
+    double descuento;
     double precioComponente(string n);
     public:
-    VisitanteEquipo();
+    VisitanteEquipo(TipoVisitante t);
     virtual void visitarDisco(Disco & d);
     virtual void visitarTarjeta(Tarjeta & t);
     virtual void visitarBus(Bus & b);

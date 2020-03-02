@@ -10,8 +10,8 @@ using namespace std;
 
 int main(void){
     Equipo eq;
-    VisitantePrecio vp;
-    VisitantePrecioDetalle vd;
+    VisitantePrecio vp(TipoVisitante::TEstudiante);
+    VisitantePrecioDetalle vd(TipoVisitante::TEstudiante);
     
     eq.insertarComponente(Disco("Disco SAS"));
     eq.insertarComponente(Bus("Bus PCI"));
@@ -20,18 +20,18 @@ int main(void){
     eq.insertarComponente(Disco("Nombre inventado"));
 
 
-    vector<pair<Tipo,ComponenteEquipo>> componentes = eq.getComponentes();
+    vector<pair<TipoComponente,ComponenteEquipo>> componentes = eq.getComponentes();
 
     for (int i=0; i<componentes.size(); i++){
-        if (componentes[i].first == Tipo::TDisco){
+        if (componentes[i].first == TipoComponente::TDisco){
             ((Disco *)&componentes[i].second)->aceptarVisitante(&vd);
             ((Disco *)&componentes[i].second)->aceptarVisitante(&vp);
         }
-        else if (componentes[i].first == Tipo::TTarjeta){
+        else if (componentes[i].first == TipoComponente::TTarjeta){
             ((Tarjeta *)&componentes[i].second)->aceptarVisitante(&vd);
             ((Tarjeta *)&componentes[i].second)->aceptarVisitante(&vp);
         }
-        else if (componentes[i].first == Tipo::TBus){
+        else if (componentes[i].first == TipoComponente::TBus){
             ((Bus *)&componentes[i].second)->aceptarVisitante(&vd);
             ((Bus *)&componentes[i].second)->aceptarVisitante(&vp);
         }
