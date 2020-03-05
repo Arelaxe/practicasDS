@@ -19,7 +19,9 @@ public class P1S3 {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new VentanaPrincipal().setVisible(true);
+                VentanaPrincipal v = new VentanaPrincipal();
+                v.getTemperatura().addObserver(v);
+                v.setVisible(true);
             }
         });
     }

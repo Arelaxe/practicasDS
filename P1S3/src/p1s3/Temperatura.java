@@ -4,12 +4,12 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Temperatura extends Observable implements Runnable{
-    private float temperatura = 0;
+    private double temperatura = 0;
     
     Temperatura(){
     }
     
-    public float getTemperatura(){
+    public double getTemperatura(){
         return (temperatura);
     }
     
@@ -20,7 +20,7 @@ public class Temperatura extends Observable implements Runnable{
     @Override
     public void run(){
         while (true){
-            temperatura = (float)Math.random()*(50);
+            temperatura = Math.random()*(50);
             try{
                 TimeUnit.SECONDS.sleep(1);
             }catch(InterruptedException ex){
@@ -28,6 +28,12 @@ public class Temperatura extends Observable implements Runnable{
             }
             setChanged();
             notifyObservers(this);
+            System.out.println(Double.toString(temperatura));
         }
+    }
+    
+    @Override
+    public String toString(){
+        return Double.toString(Math.floor(temperatura));
     }
 }
