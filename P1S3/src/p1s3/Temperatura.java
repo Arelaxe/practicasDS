@@ -13,7 +13,7 @@ public class Temperatura extends Observable implements Runnable{
         return (temperatura);
     }
     
-    public void setTemperatura(float temperatura){
+    public void setTemperatura(double temperatura){
         this.temperatura = temperatura;
     }
     
@@ -28,12 +28,11 @@ public class Temperatura extends Observable implements Runnable{
             }
             setChanged();
             notifyObservers(this);
-            System.out.println(Double.toString(temperatura));
         }
     }
     
     @Override
     public String toString(){
-        return Double.toString(Math.floor(temperatura));
+        return Double.toString(temperatura);
     }
 }

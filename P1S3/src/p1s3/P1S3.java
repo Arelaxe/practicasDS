@@ -15,12 +15,24 @@ public class P1S3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        BotonCambio boton = new BotonCambio ();
+        PantallaTemperatura pantalla = new PantallaTemperatura();
+        GraficaTemperatura grafica = new GraficaTemperatura();
+        Temperatura t = new Temperatura();
+        HebraTemperatura h = new HebraTemperatura(t); 
+        
+        t.addObserver(boton);
+        t.addObserver(pantalla);
+        t.addObserver(grafica);
+        h.start();
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 VentanaPrincipal v = new VentanaPrincipal();
-                v.getTemperatura().addObserver(v);
+                pantalla.setVentana(v);
+                grafica.setVentana(v);
+                v.setBotonCambio(boton);
                 v.setVisible(true);
             }
         });

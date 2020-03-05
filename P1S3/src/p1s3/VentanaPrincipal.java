@@ -7,34 +7,27 @@ package p1s3;
 
 import java.util.*;
 
-
-public class VentanaPrincipal extends javax.swing.JFrame implements Observer {
-    private BotonCambio boton = new BotonCambio ();
-    private PantallaTemperatura pantalla = new PantallaTemperatura();
-    private GraficaTemperatura grafica = new GraficaTemperatura();
-    private Temperatura t = new Temperatura();
-    private HebraTemperatura h = new HebraTemperatura(t); 
-
-    /**
-     * Creates new form VentanaPrincipal
-     */
+public class VentanaPrincipal extends javax.swing.JFrame{
+    private BotonCambio b;
+    
+    public static boolean isNumeric(String str) {
+        return (str.matches("[+-]?\\d*(\\.\\d+)?") && str.equals("")==false);
+    }
+    
     public VentanaPrincipal() {
-        t.addObserver(boton);
-        t.addObserver(pantalla);
-        t.addObserver(grafica);
-        h.start();
         initComponents();
-        jLabel1.setText(t.toString());
     }
     
-    public Temperatura getTemperatura(){
-        return t;
+    public javax.swing.JLabel getEtiqueta() {
+        return (jLabel1);
     }
     
-    @Override
-    public void update(Observable obs, Object obj){
-        t = (Temperatura) obj;
-        jLabel1.setText(t.toString());
+    public javax.swing.JProgressBar getGrafica() {
+        return (jProgressBar1);
+    }
+    
+    public void setBotonCambio(BotonCambio boton) {
+        b = boton;
     }
 
     /**
@@ -59,7 +52,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Observer {
             }
         });
 
-        jTextField1.setText("jTextField1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -73,7 +65,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Observer {
             }
         });
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Aquí aparecerá la temperatura");
 
         jDesktopPane1.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -85,26 +77,29 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Observer {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
                         .addGap(82, 82, 82)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
+                .addGap(50, 50, 50))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(111, 111, 111)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
@@ -125,7 +120,12 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        if (!jTextField1.getText().equals("") && isNumeric(jTextField1.getText())){
+            double temp = Double.parseDouble(jTextField1.getText());
+            b.setCambioTemperatura(true);
+            b.setTemperatura(temp);
+            jTextField1.setText("");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
