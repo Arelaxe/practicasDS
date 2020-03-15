@@ -1,30 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package p1s3;
 
-import java.util.*;
-
-/**
- *
- * @author noelia
- */
 public class P1S3 {
     
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+        // Inicializamos los distintos componentes del sistema
         BotonCambio boton = new BotonCambio ();
-        PantallaTemperatura pantalla = new PantallaTemperatura();
         GraficaTemperatura grafica = new GraficaTemperatura();
         Temperatura t = new Temperatura(ZonaGeografica.ZONA1);
+        PantallaTemperatura pantalla = new PantallaTemperatura(t);
         HebraTemperatura h = new HebraTemperatura(t); 
-        
-        
+        HebraPantallaTemperatura p = new HebraPantallaTemperatura(pantalla);
         TiempoSatelital ts = new TiempoSatelital(ZonaGeografica.ZONA1);
         
         for (int i=0; i<ZonaGeografica.values().length; i++){
@@ -37,21 +22,23 @@ public class P1S3 {
             ht_aux.start();
         }
         
+        // Suscribimos los observadores
+        t.addObserver(ts);
         t.addObserver(boton);
         t.addObserver(grafica);
+        
+        // Iniciamos las hebras
         h.start();
+        p.start();
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                VentanaPrincipal v = new VentanaPrincipal();
-                pantalla.setVentana(v);
-                grafica.setVentana(v);
-                ts.setVentana(v);
-                v.setBotonCambio(boton);
-                v.setPantallaTemperatura(pantalla);
-                v.setTemperatura(t);
-                v.setVisible(true);
+                // Hacemos visibles los JFrames
+                grafica.setVisible(true);
+                pantalla.setVisible(true);
+                boton.setVisible(true);
+                ts.setVisible(true);
             }
         });
     }
