@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package p1s4;
 
 import javax.swing.JTextField;
@@ -10,21 +6,15 @@ import javax.swing.JTextField;
 
 public class CuentaKilometros extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CuentaKilometros
-     */
+    // *************************************************************************
+    // CONSTRUCTOR:
+    // *************************************************************************
+    
+    
     public CuentaKilometros() {
         initComponents();
     }
-
-    public JTextField getDistanciaReciente() {
-        return distanciaReciente;
-    }
     
-    public JTextField getDistancia() {
-        return distancia;
-    }
-
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,9 +34,9 @@ public class CuentaKilometros extends javax.swing.JPanel {
         etiquetaPrincipal.setText("Cuenta Kilómetros");
         etiquetaPrincipal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        etiquetaDisReciente.setText("km (reciente)");
+        etiquetaDisReciente.setText("km (actual)");
 
-        etiquetaDistancia.setText("km (actual)");
+        etiquetaDistancia.setText("km (acumulado)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -57,7 +47,7 @@ public class CuentaKilometros extends javax.swing.JPanel {
                 .addComponent(etiquetaPrincipal)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiquetaDisReciente)
                     .addComponent(etiquetaDistancia))
@@ -85,6 +75,20 @@ public class CuentaKilometros extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 
+    // *************************************************************************
+    // MÉTODOS CONSULTORES:
+    // *************************************************************************
+    
+
+    public JTextField getDistanciaReciente() {
+        return distanciaReciente;
+    }
+    
+    public JTextField getDistancia() {
+        return distancia;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField distancia;
     private javax.swing.JTextField distanciaReciente;

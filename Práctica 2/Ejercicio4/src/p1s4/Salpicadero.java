@@ -2,12 +2,19 @@
 package p1s4;
 
 
-public class Salpicadero extends javax.swing.JPanel {
+public class Salpicadero extends javax.swing.JPanel{
+    private Controlador controlador;
+    
+    // *************************************************************************
+    // CONSTRUCTOR:
+    // *************************************************************************
     
     public Salpicadero() {
         initComponents();
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -20,8 +27,9 @@ public class Salpicadero extends javax.swing.JPanel {
         velocimetro = new p1s4.Velocimetro();
         cuentaKilometros = new p1s4.CuentaKilometros();
         cuentaRevoluciones = new p1s4.CuentaRevoluciones();
+        controlCombustible1 = new p1s4.ControlCombustible();
 
-        setLayout(new java.awt.GridLayout(3, 1));
+        setLayout(new java.awt.GridLayout(2, 2));
 
         velocimetro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(velocimetro);
@@ -31,9 +39,12 @@ public class Salpicadero extends javax.swing.JPanel {
 
         cuentaRevoluciones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(cuentaRevoluciones);
+        add(controlCombustible1);
     }// </editor-fold>//GEN-END:initComponents
 
-    // Métodos consultores:
+    // *************************************************************************
+    // MÉTODOS CONSULTORES:
+    // *************************************************************************
     
     public CuentaKilometros getCuentaKilometros() {
         return cuentaKilometros;
@@ -47,8 +58,21 @@ public class Salpicadero extends javax.swing.JPanel {
         return velocimetro;
     }
 
+    public ControlCombustible getControlCombustible() {
+        return controlCombustible1;
+    }
+    
+    // *************************************************************************
+    // MÉTODOS MODIFICADORES:
+    // *************************************************************************
+    
+    public void setControlador(Controlador c){
+        controlador = c;
+    }
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private p1s4.ControlCombustible controlCombustible1;
     private p1s4.CuentaKilometros cuentaKilometros;
     private p1s4.CuentaRevoluciones cuentaRevoluciones;
     private p1s4.Velocimetro velocimetro;

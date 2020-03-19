@@ -7,12 +7,19 @@ package p1s4;
 
 
 public class VentanaPrincipal extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Mandos
-     */
+    private Controlador c = new Controlador();
+    
+    // *************************************************************************
+    // CONSTRUCTOR:
+    // *************************************************************************
+    
     public VentanaPrincipal() {
         initComponents();
+        c.nuevoControladorPanelBotones(panelBotones);
+        c.nuevoControladorSalpicadero(salpicadero);
+        
+        panelBotones.setControlador(c);
+        salpicadero.setControlador(c);
     }
 
     /**
@@ -29,6 +36,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         salpicadero = new p1s4.Salpicadero();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("VELOCIMETRO");
 
         panelPrincipal.addTab("Panel Botones", panelBotones);
         panelPrincipal.addTab("Salpicadero", salpicadero);
@@ -38,6 +46,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    // *************************************************************************
+    // MÉTODOS CONSULTORES:
+    // *************************************************************************
+    
     public Salpicadero getSalpicadero() {
         return salpicadero;
     }
@@ -46,8 +59,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         return panelBotones;
     }
     
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private p1s4.PanelBotones panelBotones;
     private javax.swing.JTabbedPane panelPrincipal;

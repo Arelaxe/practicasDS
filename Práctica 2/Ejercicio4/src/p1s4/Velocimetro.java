@@ -10,9 +10,10 @@ import javax.swing.JTextField;
 
 public class Velocimetro extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Velocimetro
-     */
+    // *************************************************************************
+    // CONSTRUCTOR:
+    // *************************************************************************
+    
     public Velocimetro() {
         initComponents();
     }
@@ -64,6 +65,10 @@ public class Velocimetro extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // *************************************************************************
+    // MÉTODOS CONSULTORES:
+    // *************************************************************************
+    
     public JTextField getVelocidad() {
         return velocidad;
     }

@@ -3,8 +3,12 @@ package p1s4;
 public class GestorFiltros {
     private CadenaFiltros cadenaFiltros = new CadenaFiltros();
     
-    public void peticionFiltro (Objetivo s, EstadoMotor e){
-        cadenaFiltros.ejecutar(s, e);
+    // *************************************************************************
+    // MÉTODOS AUXILIARES:
+    // *************************************************************************
+    
+    public void peticionFiltro (Objetivo s, EstadoMotor e, EstadoSCACV es, boolean c){
+        cadenaFiltros.ejecutar(s, e, es, c);
     }
     
     public void aniadirFiltro (Filtro f){

@@ -36,11 +36,7 @@ public class P1s4{
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                GestorFiltros gestor = new GestorFiltros();
-                VentanaPrincipal v = new VentanaPrincipal();
-                Objetivo obj = new Objetivo(v);
-                
-                v.setVisible(true);
+                new VentanaPrincipal().setVisible(true);
             }
         });
     }

@@ -16,17 +16,35 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-              <Component id="etiquetaRevoluciones" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="55" max="32767" attributes="0"/>
-              <Component id="revoluciones" min="-2" pref="173" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="etiquetaPrincipal" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="etiquetaRevAceite" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiquetaPrincipal" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="etiquetaRevoluciones" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="etiquetaRevPastillas" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiquetaRevRevGeneral" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="revAceite" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="revPastillas" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="revRevGeneral" min="-2" pref="101" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+              <Component id="etiquetaRPM" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="revoluciones" min="-2" pref="173" max="-2" attributes="0"/>
+                  <Component id="rpm" min="-2" pref="173" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -37,10 +55,30 @@
               <Component id="etiquetaPrincipal" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="revoluciones" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="etiquetaRevoluciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rpm" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiquetaRPM" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="56" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="etiquetaRevoluciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="revoluciones" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="etiquetaRevAceite" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="revAceite" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="etiquetaRevPastillas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="revPastillas" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="etiquetaRevRevGeneral" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="revRevGeneral" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -56,12 +94,40 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="revoluciones">
+    <Component class="javax.swing.JTextField" name="rpm">
     </Component>
-    <Component class="javax.swing.JLabel" name="etiquetaRevoluciones">
+    <Component class="javax.swing.JLabel" name="etiquetaRPM">
       <Properties>
         <Property name="text" type="java.lang.String" value="RPM"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etiquetaRevoluciones">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Revoluciones"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etiquetaRevAceite">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Revoluciones (sin cambiar aceite)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etiquetaRevPastillas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Revoluciones (sin cambiar pastillas f.)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etiquetaRevRevGeneral">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Revoluciones (sin realizar revisi&#xf3;n)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="revoluciones">
+    </Component>
+    <Component class="javax.swing.JTextField" name="revAceite">
+    </Component>
+    <Component class="javax.swing.JTextField" name="revPastillas">
+    </Component>
+    <Component class="javax.swing.JTextField" name="revRevGeneral">
     </Component>
   </SubComponents>
 </Form>

@@ -22,7 +22,7 @@
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="etiquetaDisReciente" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="etiquetaDistancia" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -71,12 +71,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="etiquetaDisReciente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="km (reciente)"/>
+        <Property name="text" type="java.lang.String" value="km (actual)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="etiquetaDistancia">
       <Properties>
-        <Property name="text" type="java.lang.String" value="km (actual)"/>
+        <Property name="text" type="java.lang.String" value="km (acumulado)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="distancia">
