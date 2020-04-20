@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="etiquetaRevAceite" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiquetaPrincipal" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="etiquetaRevoluciones" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="etiquetaRevPastillas" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiquetaRevRevGeneral" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="revAceite" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="revPastillas" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="revRevGeneral" min="-2" pref="101" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+              <Component id="etiquetaRPM" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="revoluciones" min="-2" pref="173" max="-2" attributes="0"/>
+                  <Component id="rpm" min="-2" pref="173" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Component id="etiquetaPrincipal" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="rpm" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiquetaRPM" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="etiquetaRevoluciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="revoluciones" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="etiquetaRevAceite" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="revAceite" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="etiquetaRevPastillas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="revPastillas" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="etiquetaRevRevGeneral" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="revRevGeneral" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="etiquetaPrincipal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cuenta Revoluciones"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="rpm">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rpmActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etiquetaRPM">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="RPM"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etiquetaRevoluciones">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Revoluciones"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etiquetaRevAceite">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Revoluciones (sin cambiar aceite)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etiquetaRevPastillas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Revoluciones (sin cambiar pastillas f.)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etiquetaRevRevGeneral">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Revoluciones (sin realizar revisi&#xf3;n)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="revoluciones">
+    </Component>
+    <Component class="javax.swing.JTextField" name="revAceite">
+    </Component>
+    <Component class="javax.swing.JTextField" name="revPastillas">
+    </Component>
+    <Component class="javax.swing.JTextField" name="revRevGeneral">
+    </Component>
+  </SubComponents>
+</Form>
