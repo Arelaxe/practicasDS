@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>App Votación Online</title>
+	</head>
+	<body>
+		<p>Alternativa 1: <div id="alternativa1">0</div></p>
+		<p>Alternativa 2: <div id="alternativa2">0</div></p>
+	</body>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		var serviceURL = document.URL;
+		var socket = io.connect('http://localhost:8081');
+
+		function render(ind){
+			var value = document.getElementById('alternativa'+ind).innerHTML;
+			value++;
+			document.getElementById('alternativa'+ind).innerHTML = value;
+		}
+
+		socket.on('update-values', function(data) {
+			console.log(data.ind);
+			render(data.ind);
+		});
+
+		socket.on('initialize-values', function(data){
+			console.log(data.data);
+			document.getElementById('alternativa1').innerHTML = data.data[1];
+			document.getElementById('alternativa2').innerHTML = data.data[2];
+		});
+	</script>
+</html>
