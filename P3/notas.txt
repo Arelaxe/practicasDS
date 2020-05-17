@@ -1,0 +1,1 @@
+ Añadir una colección con las sesiones abiertas

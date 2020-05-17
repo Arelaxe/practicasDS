@@ -1,0 +1,53 @@
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Creación de la votación</title>
+	</head>
+	<body>
+        <form id="select-plantilla" action="javascript:void(0);" onsubmit="javascript:enviar();">
+            <p>Selecciona una plantilla:</p>
+            <select id="plantillas">
+            </select><br />
+            <input type="submit" value="Establecer votación">
+        </form>
+        
+        <div id="sala-asignada"></div>
+	</body>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+
+        var serviceURL = document.URL;
+		var socket = io.connect('http://localhost:8081');
+    
+        function setPlantillas(plantillas){
+            document.getElementById('plantillas').innerHTML = "";
+            var str = "";
+            for (var i=0; i<plantillas.length; i++){
+                console.log(plantillas[i]);
+                str += "<option id=\""+ plantillas[i].nombre +"\">"+ plantillas[i].nombre +"</option>";
+            }
+            document.getElementById('plantillas').innerHTML = str;
+        }
+
+		function enviar(){
+            document.getElementById('select-plantilla').style.display = 'none';
+            var plantilla = document.getElementById('plantillas').value;
+            console.log(plantilla);
+            socket.emit('nueva-votacion', {plantilla:plantilla});
+        }
+        
+        socket.on('cargar-plantillas', function(data){
+            console.log(data);
+            setPlantillas(data.data);
+        });
+
+        socket.on('establecer-sala', function(data){
+            console.log(data);
+            document.getElementById('sala-asignada').innerHTML = "El código de la sala asignada es " + data.codigo;
+        });
+
+	</script>
+	
+</html>

@@ -4,11 +4,7 @@
 		<title>Menu Votación</title>
 	</head>
 	<body>
-		<form action="javascript:void(0);" onsubmit="javascript:enviar();">
-			<label for="alternativa">Alternativa a votar:</label>
-			<input type="text" id="alternativa"/><br/>
-			<input type="submit" value="Votar">
-		</form>
+		<div id=content></div>
 	</body>
 
 	<script src="/socket.io/socket.io.js"></script>
@@ -17,9 +13,40 @@
 		console.log(serviceURL);
 		var socket = io.connect('http://localhost:8081');
 		
-		function enviar() {
-			var alt = document.getElementById("alternativa").value;
-			socket.emit('add-vote', {ind: alt});
+		function enviar(indPreg) {
+			console.log();
+			var indAlt = document.getElementById("preg"+indPreg).selectedIndex;
+			socket.emit('add-vote', {preg: indPreg, alt: indAlt});
+			
+			// Desactivamos para que no pueda volver a pulsar (esto se debe controlar mejor cuando
+			// se incluyan los usuarios).
+
+			document.getElementById("form-preg-"+indPreg).style.display = 'none';
 		}
+
+		socket.on('initialize-values', function(data){
+			var numPreg = data.data.preguntas.length;
+			var numAlter = 0;
+
+			var str="";
+
+			for (var i=0; i<numPreg; i++){
+				numAlter = data.data.preguntas[i].alternativas.length;
+				console.log(numAlter);
+
+				str += "<form id=\"form-preg-" + i + "\" action=\"javascript:void(0);\" onsubmit=\"javascript:enviar("+i+");\">";
+				str += data.data.preguntas[i].contenido+"<br/>";
+				str +="<select id=\"preg"+i+"\">";
+
+				for (var j=0; j<numAlter; j++){
+					str += "<option>"+data.data.preguntas[i].alternativas[j]+"</option>";
+				}
+				str+="</select>";
+				str+="<input type=\"submit\" value=\"Votar\">";
+				str+="</form>";
+			}
+
+			document.getElementById('content').innerHTML = str;
+		});
 	</script>
 </html>

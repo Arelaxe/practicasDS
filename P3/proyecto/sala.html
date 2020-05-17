@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Votación Sala</title>
+	</head>
+	<body>
+		<div id="resultados"></div>
+	</body>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		var serviceURL = document.URL;
+		var socket = io.connect('http://localhost:8081');
+
+		function render(preg, alt){
+			var value = document.getElementById('alt'+alt+"-preg"+preg).innerHTML;
+			value++;
+			document.getElementById('alt'+alt+"-preg"+preg).innerHTML = value;
+		}
+
+		socket.on('update-values', function(data) {
+			console.log(data);
+			render(data.preg, data.alt);
+		});
+
+		socket.on('initialize-values', function(data){
+			var numPreg = data.data.preguntas.length;
+			var numAlter = 0;
+
+			var str="";
+
+			for (var i=0; i<numPreg; i++){
+				numAlter = data.data.preguntas[i].alternativas.length;
+				console.log(numAlter);
+
+				str += "<div>" + data.data.preguntas[i].contenido +"<div id=\"alt"+i+"\"></div></div>";
+
+				for (var j=0; j<numAlter; j++){
+					str += "&emsp;<div>"+data.data.preguntas[i].alternativas[j]+"<div id=\"alt"+j+"-preg"+i+"\">0</div></div>";
+				}
+				str+="<br>";
+			}
+
+			document.getElementById('resultados').innerHTML = str;
+		});
+	</script>
+</html>

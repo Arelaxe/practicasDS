@@ -1,33 +1,35 @@
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>App Votación Online</title>
+		<title>Selección de sala</title>
 	</head>
 	<body>
-		<p>Alternativa 1: <div id="alternativa1">0</div></p>
-		<p>Alternativa 2: <div id="alternativa2">0</div></p>
+		<form id="form-principal" action="javascript:void(0);" onsubmit="javascript:enviar();">
+			<label for="sala">Seleccione el código de la sala:</label>
+			<input type="text" id="sala"/><br/>
+			
+			<select id="op">
+				<p>Seleccione la operación a realizar:</p>
+				<option value="voting">Votar</option>
+				<option value="acceso-sala">Acceder a la sala</option>
+			</select><br />
+
+			<input type="submit" value="OK">
+		</form>
 	</body>
 
 	<script src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript">
-		var serviceURL = document.URL;
-		var socket = io.connect('http://localhost:8081');
+		function enviar(){
+			var op = document.getElementById('op').value;
+			if (op == 'acceso-sala')
+				var url = document.URL + "sala=" + document.getElementById('sala').value;
+			else
+				var url = document.URL + "voting=" + document.getElementById('sala').value;
 
-		function render(ind){
-			var value = document.getElementById('alternativa'+ind).innerHTML;
-			value++;
-			document.getElementById('alternativa'+ind).innerHTML = value;
+			window.location.href = url;
 		}
-
-		socket.on('update-values', function(data) {
-			console.log(data.ind);
-			render(data.ind);
-		});
-
-		socket.on('initialize-values', function(data){
-			console.log(data.data);
-			document.getElementById('alternativa1').innerHTML = data.data[1];
-			document.getElementById('alternativa2').innerHTML = data.data[2];
-		});
 	</script>
+	
 </html>
