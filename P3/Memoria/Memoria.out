@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section.1}{Descripci\363n}{}% 1
+\BOOKMARK [1][-]{section.2}{Requisitos funcionales}{}% 2
+\BOOKMARK [1][-]{section.3}{Requisitos no funcionales}{}% 3
+\BOOKMARK [1][-]{section.4}{Listado de las partes interesadas y de las preocupaciones de cada una}{}% 4
+\BOOKMARK [1][-]{section.5}{Listado de criterios de calidad}{}% 5
+\BOOKMARK [1][-]{section.6}{Diagrama de clases de dise\361o}{}% 6
+\BOOKMARK [1][-]{section.7}{Problemas encontrados con tecnolog\355as finalmente no aplicadas}{}% 7
+\BOOKMARK [2][-]{subsection.7.1}{Angular JS y Firebase}{section.7}% 8
+\BOOKMARK [2][-]{subsection.7.2}{Firebase y App Engine}{section.7}% 9
+\BOOKMARK [2][-]{subsection.7.3}{Android JS}{section.7}% 10
+\BOOKMARK [1][-]{section.8}{Tecnolog\355as finalmente usadas}{}% 11
+\BOOKMARK [2][-]{subsection.8.1}{Node JS}{section.8}% 12
+\BOOKMARK [2][-]{subsection.8.2}{Express JS}{section.8}% 13
+\BOOKMARK [2][-]{subsection.8.3}{MongoDB}{section.8}% 14
+\BOOKMARK [2][-]{subsection.8.4}{EJS}{section.8}% 15
+\BOOKMARK [2][-]{subsection.8.5}{HTML}{section.8}% 16
