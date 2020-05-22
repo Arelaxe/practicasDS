@@ -1,0 +1,2 @@
+Actualización en la base de datos
+Comprobar que el usuario no pueda añadir a una votación otro usuario inexistente

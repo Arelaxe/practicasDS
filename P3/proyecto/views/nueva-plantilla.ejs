@@ -1,0 +1,73 @@
+
+<%- include('head') -%>
+
+    <h1>Nueva plantilla</h1>
+	<body>
+        <form action="javascript:void(0);" onsubmit="javascript:establecerDatos();">
+            <label for="nombre-plantilla">Indique el nombre de la plantilla: </label>
+            <input type="text" id="nombre-plantilla"/><br/>
+            <label for="num-preguntas">Indique el número de preguntas de la plantilla: </label>
+            <input type="text" id="num-preguntas"/><br/>
+            <label for="num-alternativas">Indique el número de alternativas de la plantilla: </label>
+            <input type="text" id="num-alternativas"/><br/> <br/>
+			<input type="submit" value="Establecer datos">
+        </form>
+        
+        <form id="form-alternativas" action="/index" onsubmit="javascript:enviar();">
+        </form>
+	</body>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        var serviceURL = document.URL;
+		var socket = io.connect('http://localhost:3000');
+
+        function establecerDatos(){
+            var numPreg = document.getElementById('num-preguntas').value;
+            var numAlt = document.getElementById('num-alternativas').value;
+
+            var str = "<input type=\"hidden\" id=\"numPreg\" value=\"" + numPreg +"\" />";
+            str+= "<input type=\"hidden\" id=\"numAlt\" value=\"" + numAlt +"\" />";
+
+            var n;
+            for (var i=0; i<numPreg; i++){
+                n = i+1;
+                str += "<label for=\"preg"+ i +"\"> Pregunta "+ n +": </label>";
+                str += "<input type=\"text\" id=\"preg"+ i +"\"/><br/>";
+                for (var j=0; j<numAlt; j++){
+                    n = j+1;
+                    str += "&emsp;<label for=\"alt"+ i+"-"+j +"\"> Alternativa "+ n +": </label>";
+                    str += "<input type=\"text\" id=\"alt"+ i+"-"+j +"\"/><br/>";
+                }
+            }
+            
+            str += "<input type=\"submit\" value=\"Establecer votación\">";
+
+            document.getElementById('form-alternativas').innerHTML = str;
+        }
+
+		function enviar(){
+			//var url = "/";
+
+            var numPreg = document.getElementById('numPreg').value;
+            var numAlt = document.getElementById('numAlt').value;
+
+            var preguntas = [];
+
+            for (var i=0; i<numPreg; i++){
+                var pregunta = {}
+                pregunta['contenido'] = document.getElementById("preg"+i).value;
+                
+                pregunta['alternativas'] = [];
+                for (var j=0; j<numAlt; j++){
+                    pregunta['alternativas'].push(document.getElementById("alt"+i+"-"+j).value);
+                }
+                preguntas.push(pregunta);
+            }
+
+            var nombre = document.getElementById('nombre-plantilla').value;
+            socket.emit('add-plantilla', {nombre:nombre, preguntas:preguntas});
+        }
+	</script>
+    
+    <%- include('foot') -%>

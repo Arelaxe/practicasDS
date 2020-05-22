@@ -1,0 +1,20 @@
+<%- include('head') -%>
+	<h1>Mis votaciones</h1>
+	<body>
+		<% for(var i=0; i<votaciones.length; i++){ %>
+			<form method="post" action="/consultar-votaciones">
+				<%= votaciones[i].nombre %>
+				<input type="hidden" name="cod" value="<%= votaciones[i].cod %>"/>
+				<input type="text" name="user"/>
+				<input type="submit" value="Añadir usuario"/>
+			</form>
+		<% } %>
+	</body>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+	</script>
+
+
+<%- include('foot') -%>
+
