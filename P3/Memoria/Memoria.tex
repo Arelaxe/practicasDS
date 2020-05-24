@@ -62,6 +62,16 @@
 		\item Probar los cambios (automatizar las pruebas, hacer una buena gestión de la configuración, abstraer procesos repetibles).
 	\end{itemize}
 
+
+	\section{Diagrama de componentes}
+	A partir de los requisitos mencionados anteriormente, podemos obtener el siguiente diagrama de cajas y líneas, que muestra las características del sistema a nivel contextual:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=7.5cm]{img/diagrama_cajas}
+		\caption{Diagrama contextual}
+	\end{figure}
+
 	\section{Diagrama de clases de diseño}
 	A continuación se adjunta un diagrama de clases de diseño, dónde se especifican los elementos más importantes del sistema así como las relaciones entre los mismos:
 	
@@ -69,7 +79,6 @@
 		\centering
 		\includegraphics[totalheight=7cm]{img/5.jpg}
 		\caption{Diagrama de clases de diseño}
-		\label{fig:figura1}
 	\end{figure}
 	
 	\section{Problemas encontrados con tecnologías finalmente no aplicadas}
@@ -113,4 +122,132 @@
  	EJS o Embebed Javascript Templating, es un motor de plantillas, que permite generar HTML con JavaScript. Nos ha sido muy útil la ayuda de la página oficial: \url{https://ejs.co/}.
  	\subsection{HTML}
  	Por supuesto, hemos tenido que usar HTML como base para las distintas páginas de la aplicación.
+ 	
+ 	\section{Funcionamiento de la aplicación}
+ 	Partiendo de los requisitos y criterios de calidad mencionados anteriormente, se ha decidido crear una página web usando las tecnologías previamente comentadas. \\
+ 	Al acceder a la página web, lo primero que nos encontramos es la opción de log-in, ya que es un requisito imprescindible estar identificado previamente para poder acceder al sistema. Adicionalmente, en el caso de que no estemos registrados, nos proporcionará una alternativa para poder registrarnos. \\
+ 	Este proceso se llevará a cabo gestionando las distintas peticiones en el servidor por medio de Express, y comprobando las credenciales a partir de la información almacenada en la base de datos. \\ ~\\
+ 	
+ 	Una vez nos hemos identificado o registrado, podremos acceder al menú principal. Este menú nos proporciona una serie de operaciones:
+ 	\begin{itemize}
+ 		\item Una operación de acceso a la sala. Para poder realizar esta operación debemos proporcionar un código de sala válido. Una sala es válida si tiene asociada una votación con una fecha de finalización posterior a la fecha actual y una fecha de inicio anterior a la actual. Es decir, la votación de la sala actual debe estar en curso para que podamos acceder a la misma.
+ 		
+ 		\item Una operación de votación en una sala. Para poder votar en la sala, además de cumplir los requisitos de acceso mencionados anteriormente, también debemos comprobar que el usuario presenta permisos para participar en esta votación.
+ 		
+ 		\item Una operación para añadir un usuario a la lista de miembros de una votación. El usuario podrá realizar esta operación sobre todas las votaciones creadas por el mismo.
+ 		
+ 		\item Una operación para añadir una plantilla, especificando: el nombre de la plantilla, las distintas preguntas y las alternativas para cada pregunta.
+ 		
+ 		\item Una operación para añadir una votación, especificando: el nombre de la votación, la plantilla a usar, la fecha de inicio de la votación y la fecha de finalización. En el caso de que las fechas proporcionadas no sean válidas, generará los avisos correspondientes.
+ 		
+ 		\item Adicionalmente, se permitirá que el usuario se desloguee, destruyendo la sesión correspondiente.
+ 	\end{itemize}
+ 
+ 	Para poder desarrollar este proceso correctamente, requerimos disponer de información almacenada, sobre todo en cuanto a los usuarios, las votaciones asociadas a las salas y las plantillas disponibles. Para ello, haremos uso de una base de datos MongoDB, cargando cada vez que arranca el sistema la información correspondente y actualizándola cada vez que se modifique. Por ejemplo, en el caso de las votaciones asociadas a las salas, cada vez que se cree una nueva votación, se comprobarán todas las salas asignadas de forma secuencial: si una sala tiene asociada una votación que ya ha expirado, podemos asignarle dicha sala a la votación en cuestión. \\
+ 
+ 	En las siguientes capturas de pantalla se muestra el ejemplo de una votación sencilla, permitiéndonos observar de forma práctica el funcionamiento del sistema:
+ 	\newpage
+ 	
+ 	En primer lugar nos registramos:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=6.5cm]{img/cap6}
+ 		\caption{}
+ 	\end{figure}
+ ~\\
+ 
+ 	O en el caso de que estuviésemos previamente registrados, iniciamos sesión:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=5.7cm]{img/cap7}
+ 		\caption{}
+ 	\end{figure}
+ 	\newpage
+ 	Una vez nos identificamos, entramos a la página principal:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=6.6cm]{img/cap8}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 	Creamos una nueva plantilla para usar en las votaciones:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=9cm]{img/cap9}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 	Creamos una nueva votación a partir de la plantilla creada anteriormente:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=7.5cm]{img/cap10}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 	Una vez tengamos la votación creada, se genera un mensaje con el código de la sala creada:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=7.5cm]{img/cap11}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 	Añadimos un usuario nuevo a la votación creada: de esta forma ahora podrán votar tanto \textit{ejemplo} como \textit{ejemplo2}.	
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=5.6cm]{img/cap19}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=7.6cm]{img/cap12}
+ 		\caption{}
+ 	\end{figure}
+ 	\newpage
+ 
+	 Votamos como usuario \textit{ejemplo}. Es importante que una vez el usuario haya votado, no podrá volver a votar (se notificará el mensaje de error correspondente).
+	 Además, también se muestra simultáneamente el resultado de las votaciones en la sala. \\
+ 
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=6.5cm]{img/cap13}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=6.5cm]{img/cap14}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=6.34cm]{img/cap15}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 	A continuación nos deslogueamos, iniciamos sesión como \textit{ejemplo2}, y procedemos a votar: \\
+ 
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=6cm]{img/cap16}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=7.2cm]{img/cap17}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 
+	 Finalmente, si iniciamos sesión como otro usuario distinto a \textit{ejemplo1} o \textit{ejemplo2}, se notificará el error correspondiente:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=8cm]{img/cap18}
+ 		\caption{}
+ 	\end{figure}
+ 
+ 	
 \end{document}
