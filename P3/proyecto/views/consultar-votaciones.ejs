@@ -1,6 +1,7 @@
 <%- include('head') -%>
 	<h1>Mis votaciones</h1>
 	<body>
+		<br/>
 		<% for(var i=0; i<votaciones.length; i++){ %>
 			<form method="post" action="/consultar-votaciones">
 				<%= votaciones[i].nombre %>

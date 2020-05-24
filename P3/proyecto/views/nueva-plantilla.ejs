@@ -5,9 +5,9 @@
 	<body>
         <form action="javascript:void(0);" onsubmit="javascript:establecerDatos();">
             <label for="nombre-plantilla">Indique el nombre de la plantilla: </label>
-            <input type="text" id="nombre-plantilla"/><br/>
+            <input type="text" id="nombre-plantilla"/><br/> <br/>
             <label for="num-preguntas">Indique el número de preguntas de la plantilla: </label>
-            <input type="text" id="num-preguntas"/><br/>
+            <input type="text" id="num-preguntas"/><br/> <br/>
             <label for="num-alternativas">Indique el número de alternativas de la plantilla: </label>
             <input type="text" id="num-alternativas"/><br/> <br/>
 			<input type="submit" value="Establecer datos">
@@ -27,18 +27,19 @@
             var numAlt = document.getElementById('num-alternativas').value;
 
             var str = "<input type=\"hidden\" id=\"numPreg\" value=\"" + numPreg +"\" />";
-            str+= "<input type=\"hidden\" id=\"numAlt\" value=\"" + numAlt +"\" />";
+            str+= "<input type=\"hidden\" id=\"numAlt\" value=\"" + numAlt +"\" /> <br/> <br/>";
 
             var n;
             for (var i=0; i<numPreg; i++){
                 n = i+1;
-                str += "<label for=\"preg"+ i +"\"> Pregunta "+ n +": </label>";
-                str += "<input type=\"text\" id=\"preg"+ i +"\"/><br/>";
+                str += "<label for=\"preg"+ i +"\"> Pregunta "+ n +": </label><br/>";
+                str += "<input type=\"text\" id=\"preg"+ i +"\"/><br/><br/><br/>";
                 for (var j=0; j<numAlt; j++){
                     n = j+1;
                     str += "&emsp;<label for=\"alt"+ i+"-"+j +"\"> Alternativa "+ n +": </label>";
-                    str += "<input type=\"text\" id=\"alt"+ i+"-"+j +"\"/><br/>";
+                    str += "<input type=\"text\" id=\"alt"+ i+"-"+j +"\"/><br/> <br/>";
                 }
+                str += "<br/>";
             }
             
             str += "<input type=\"submit\" value=\"Establecer votación\">";
