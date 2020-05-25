@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.votaciones.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_thrid"
+            app:destination="@id/thrid" />
+        <action
+            android:id="@+id/action_FirstFragment_to_yogur"
+            app:destination="@id/ConstraintLayout" />
+        <action
+            android:id="@+id/action_FirstFragment_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.votaciones.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thrid"
+        android:name="com.example.votaciones.Thrid"
+        android:label="fragment_thrid"
+        tools:layout="@layout/fragment_thrid" >
+        <action
+            android:id="@+id/action_thrid_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ConstraintLayout"
+        android:name="com.example.votaciones.Yogur"
+        android:label="fragment_yogur"
+        tools:layout="@layout/fragment_yogur" >
+        <action
+            android:id="@+id/action_yogur_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.votaciones.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+</navigation>
