@@ -1,19 +1,23 @@
 \babel@toc {spanish}{}
-\contentsline {section}{\numberline {1}Descripci\IeC {\'o}n}{2}{section.1}
-\contentsline {section}{\numberline {2}Requisitos funcionales}{2}{section.2}
-\contentsline {section}{\numberline {3}Requisitos no funcionales}{2}{section.3}
-\contentsline {section}{\numberline {4}Listado de las partes interesadas y de las preocupaciones de cada una}{2}{section.4}
-\contentsline {section}{\numberline {5}Listado de criterios de calidad}{3}{section.5}
-\contentsline {section}{\numberline {6}Diagrama de componentes}{3}{section.6}
-\contentsline {section}{\numberline {7}Diagrama de clases de dise\IeC {\~n}o}{4}{section.7}
-\contentsline {section}{\numberline {8}Problemas encontrados con tecnolog\IeC {\'\i }as finalmente no aplicadas}{5}{section.8}
-\contentsline {subsection}{\numberline {8.1}Angular JS y Firebase}{5}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Firebase y App Engine}{5}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Android JS}{6}{subsection.8.3}
-\contentsline {section}{\numberline {9}Tecnolog\IeC {\'\i }as finalmente usadas}{6}{section.9}
-\contentsline {subsection}{\numberline {9.1}Node JS}{6}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Express JS}{6}{subsection.9.2}
-\contentsline {subsection}{\numberline {9.3}MongoDB}{7}{subsection.9.3}
-\contentsline {subsection}{\numberline {9.4}EJS}{7}{subsection.9.4}
-\contentsline {subsection}{\numberline {9.5}HTML}{7}{subsection.9.5}
-\contentsline {section}{\numberline {10}Funcionamiento de la aplicaci\IeC {\'o}n}{7}{section.10}
+\contentsline {section}{\numberline {1}Fase de an\IeC {\'a}lisis}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Descripci\IeC {\'o}n}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Requisitos funcionales}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Requisitos no funcionales}{2}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Listado de las partes interesadas y de las preocupaciones de cada una}{2}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Listado de criterios de calidad}{3}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Diagrama de componentes}{3}{subsection.1.6}
+\contentsline {section}{\numberline {2}Fase de dise\IeC {\~n}o - Diagrama de clases de dise\IeC {\~n}o}{4}{section.2}
+\contentsline {section}{\numberline {3}Fase de desarrollo}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Problemas encontrados con tecnolog\IeC {\'\i }as finalmente no aplicadas}{5}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Angular JS y Firebase}{5}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Firebase y App Engine}{5}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}Android JS}{6}{subsubsection.3.1.3}
+\contentsline {subsection}{\numberline {3.2}Tecnolog\IeC {\'\i }as finalmente usadas}{6}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Node JS}{6}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Express JS}{6}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}MongoDB}{7}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}EJS}{7}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.5}HTML}{7}{subsubsection.3.2.5}
+\contentsline {subsubsection}{\numberline {3.2.6}Android Studio}{7}{subsubsection.3.2.6}
+\contentsline {subsection}{\numberline {3.3}Funcionamiento de la aplicaci\IeC {\'o}n}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Aplicaci\IeC {\'o}n para m\IeC {\'o}vil}{16}{subsection.3.4}

@@ -13,10 +13,11 @@
 	\tableofcontents
 	\newpage
 	
-	\section{Descripción}
+	\section{Fase de análisis}
+	\subsection{Descripción}
 	Se ha decidido implementar una aplicación de votaciones conjuntas siguiendo un modelo cliente-servidor. Por un lado tendremos un servidor que se encarga de recoger los distintos datos de las votaciones y tendremos una página que muestra dichos resultados. Por otro tendremos otra página mediante la cuál los usuarios podrán crear o unirse a salas de votación y/o votar en distintas votaciones.
 	
-	\section{Requisitos funcionales}
+	\subsection{Requisitos funcionales}
 	\begin{itemize}
 		\item \textbf{RF-1.} Alta de usuario.
 		\item \textbf{RF-2.} Unirse a votación.
@@ -26,7 +27,7 @@
 		\item \textbf{RF-6.} Seleccionar tipo de votación. \\
 	\end{itemize}
 	
-	\section{Requisitos no funcionales}
+	\subsection{Requisitos no funcionales}
 	\begin{itemize}
 		\item \textbf{RNF-1}. La interfaz gráfica será sencilla con el objetivo de facilitar el uso para la mayoría de usuarios.
 		\item \textbf{RNF-2.} Al establecer comunicaciones con un servidor web debemos tener
@@ -38,7 +39,7 @@
 		\item \textbf{RNF-5}. Habrá una amplia variedad de votaciones para elegir.
 	\end{itemize}
 
-	\section{Listado de las partes interesadas y de las preocupaciones de cada una}
+	\subsection{Listado de las partes interesadas y de las preocupaciones de cada una}
 	\begin{itemize}
 		\item {\bf Arquitecto.} Sus principales preocupaciones son que el sistema pueda ser portable y multiplataforma.
 		\item {\bf Cliente (Adquiriente).} Que la aplicación sea atractiva para distintos usuarios.
@@ -49,7 +50,7 @@
 		\item {\bf Usuarios.} Que la interfaz sea intuitiva y que el servidor esté disponible el mayor tiempo posible.
 	\end{itemize}
 
-	\section{Listado de criterios de calidad}
+	\subsection{Listado de criterios de calidad}
 	\begin{itemize}
 		\item {\bf Gestión del producto.} Consideramos el sistema como un producto para evaluar la evolución en su conjunto.
 		\item {\bf Magnitud de cambio.} Si apreciamos esto, se evitarán grandes costos.
@@ -63,7 +64,7 @@
 	\end{itemize}
 
 
-	\section{Diagrama de componentes}
+	\subsection{Diagrama de componentes}
 	A partir de los requisitos mencionados anteriormente, podemos obtener el siguiente diagrama de cajas y líneas, que muestra las características del sistema a nivel contextual:
 	
 	\begin{figure}[H]
@@ -72,7 +73,7 @@
 		\caption{Diagrama contextual}
 	\end{figure}
 
-	\section{Diagrama de clases de diseño}
+	\section{Fase de diseño - Diagrama de clases de diseño}
 	A continuación se adjunta un diagrama de clases de diseño, dónde se especifican los elementos más importantes del sistema así como las relaciones entre los mismos:
 	
 	\begin{figure}[H]
@@ -81,8 +82,9 @@
 		\caption{Diagrama de clases de diseño}
 	\end{figure}
 	
-	\section{Problemas encontrados con tecnologías finalmente no aplicadas}
-	\subsection{Angular JS y Firebase}
+	\section{Fase de desarrollo}
+	\subsection{Problemas encontrados con tecnologías finalmente no aplicadas}
+	\subsubsection{Angular JS y Firebase}
 	Nuestra primera idea fue desarrollar la aplicación para móvil. En primer lugar, intentamos utilizar Angular JS y Firebase, para ello, intentamos seguir el siguiente 
 	 \href{https://medium.com/@rotemtam/build-a-kahoot-clone-with-angularjs-and-firebase-b8b30891d968}{tutorial}. No nos quedó claro cómo conectar Firebase a la aplicación, ya que no daba muchos detalles. Además, el enlace de la demo de la página está roto. Al llegar al paso de usar el generador angular-fire, te pide una instancia de Firebase, no dejaba muy claro qué había que poner.
 	 
@@ -97,33 +99,35 @@
  		\centering
  		\includegraphics[totalheight=5.5cm]{img/2.png}
  	\end{figure}
- 	\subsection{Firebase y App Engine}
+ 	\subsubsection{Firebase y App Engine}
  	Nos pareció interesante la tecnología Firebase e
  	e investigamos sobre cómo conectarnos desde una aplicación. Encontramos el siguiente \href{https://cloud.google.com/solutions/mobile/mobile-firebase-app-engine-flexible}{tutorial}. Tras varias horas de trabajo, conseguimos llegar hasta casi el final del tutorial, hasta que llegó un momento en que para seguir se nos pedía la tarjeta de crédito por parte de Firebase. Se supone que no te hacían ningún tipo de cargo, pero no nos gustó la idea. Además nos apareció el siguiente error al intentar ejecutar el servicio en el servidor local con {\bf \$mvn clean package appengine:run}
  	\begin{figure}[H]
  		\centering
  		\includegraphics[totalheight=5.7cm]{img/3.png}
  	\end{figure}
- 	\subsection{Android JS}
+ 	\subsubsection{Android JS}
  	También intentamos usar Android JS, para ello seguimos este \href{https://blog.usejournal.com/how-to-build-android-apps-with-node-js-using-android-js-2aa4643be87b}{tutorial}. Tras seguirlo hasta el final, daba este error al empaquetar:
  	\begin{figure}[H]
  		\centering
  		\includegraphics[totalheight=0.92cm]{img/4.png}
  	\end{figure}
- 	\section{Tecnologías finalmente usadas}
+ 	\subsection{Tecnologías finalmente usadas}
  	Finalmente decidimos hacer la aplicación para web, hemos usado las siguientes tecnologías:
- 	\subsection{Node JS}
+ 	\subsubsection{Node JS}
  	Es un entorno de ejecución multiplataforma, de código abierto para la capa del servidor, basado en JavaScript, asíncrono, con E/S de datos en una arquitectura orientada a eventos y vasado en el motor V8 de Google. Para utilizarlo nos hemos servido de lo aprendido en la asignatura Desarrollo de Sistemas Distribuidos, así como en distinta documentación de internet.
- 	\subsection{Express JS}
+ 	\subsubsection{Express JS}
  	Es una infraestructura de aplicaciones web Node.js mínima y flexible que proporciona un conjunto solido de características para las aplicaciones web y móviles. Nos ha servido de gran utilidad para manejar las sesiones de los usuarios, así como para manejar las redirecciones, entre otras cosas. Nos han sido de gran utilidad los tutoriales que proporciona su página web: \url{https://expressjs.com/es/}.
- 	\subsection{MongoDB}
+ 	\subsubsection{MongoDB}
  	Se trata de un sistema de base de datos NoSQL, orientado a documentos y de código abierto, que es muy fácil de usar junto con Node. Lo hemos usado para guardar las cuentas de los usuarios, las encuestas, etc. Para usarlo nos hemos servido de lo aprendido en Desarrollo de Sistemas Distribuidos, así como de bibliografía de internet cuando nos surgían dudas.
- 	\subsection{EJS}
+ 	\subsubsection{EJS}
  	EJS o Embebed Javascript Templating, es un motor de plantillas, que permite generar HTML con JavaScript. Nos ha sido muy útil la ayuda de la página oficial: \url{https://ejs.co/}.
- 	\subsection{HTML}
+ 	\subsubsection{HTML}
  	Por supuesto, hemos tenido que usar HTML como base para las distintas páginas de la aplicación.
+ 	\subsubsection{Android Studio}
+ 	Para completar, se decidió hacer una pequeña aplicación para Android. para ello se usó Android Studio, el entorno de desarrollo integrado oficial para Android. Nos servimos de distintos tutoriales de la web para aprender a usarlo. 
  	
- 	\section{Funcionamiento de la aplicación}
+ 	\subsection{Funcionamiento de la aplicación}
  	Partiendo de los requisitos y criterios de calidad mencionados anteriormente, se ha decidido crear una página web usando las tecnologías previamente comentadas. \\
  	Al acceder a la página web, lo primero que nos encontramos es la opción de log-in, ya que es un requisito imprescindible estar identificado previamente para poder acceder al sistema. Adicionalmente, en el caso de que no estemos registrados, nos proporcionará una alternativa para poder registrarnos. \\
  	Este proceso se llevará a cabo gestionando las distintas peticiones en el servidor por medio de Express, y comprobando las credenciales a partir de la información almacenada en la base de datos. \\ ~\\
@@ -249,5 +253,45 @@
  		\caption{}
  	\end{figure}
  
- 	
+ 	\subsection{Aplicación para móvil}
+ 	Para completar un poco la práctica, decidimos hacer una aplicación básica para Android con Android Studio. Se trata de una versión bastante recortada de la aplicación web, ya que ha sido nuestro primer desarrollo para Android.
+ 	Vamos a ver un ejemplo de uso de la aplicación:
+ 
+ 	Nada más entrar en la aplicación aparecerá esta pantalla de login:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=8cm]{img/android1}
+ 	\end{figure}
+ 	Tenemos los siguientes usuarios definidos en el código:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=2.5cm]{img/android2}
+ 	\end{figure}
+ 	Si nos equivocamos con el login nos mostrará un mensaje de error:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=8cm]{img/android3}
+ 	\end{figure}
+ 	Si introducimos un usuario correcto accederemos a la pantalla de elegir una votación:
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=8cm]{img/android4}
+ 	\end{figure}
+ 	Tenemos tres votaciones distintas, una vez que votamos, no podremos volver a votar con el mismo usuario, tendremos que votar con otro usuario distinto (para ilustrar mejor esto, mirar el vídeo demo incluido):
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=8cm]{img/android5}
+ 	\end{figure}
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[totalheight=8cm]{img/android6}
+ 	\end{figure}
+ \begin{figure}[H]
+ 	\centering
+ 	\includegraphics[totalheight=8cm]{img/android7}
+ \end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[totalheight=8cm]{img/android8}
+\end{figure}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.4.4)  20 MAY 2020 11:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.4.4)  25 MAY 2020 18:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -695,113 +695,117 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 22.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 22.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 28.
+ (./informe.toc)
+\tf@toc=\write5
+\openout5 = `informe.toc'.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 29.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
-<img/diagrama_clases.png, id=24, 892.08281pt x 463.7325pt>
+<img/diagrama_clases.png, id=39, 892.08281pt x 463.7325pt>
 File: img/diagrama_clases.png Graphic file (type png)
 <use img/diagrama_clases.png>
-Package pdftex.def Info: img/diagrama_clases.png  used on input line 53.
+Package pdftex.def Info: img/diagrama_clases.png  used on input line 54.
 (pdftex.def)             Requested size: 506.30093pt x 263.18799pt.
 
-Overfull \hbox (93.73596pt too wide) in paragraph at lines 53--54
+Overfull \hbox (93.73596pt too wide) in paragraph at lines 54--55
  [][] 
  []
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 61--64
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 62--65
 
  []
 
-<img/cap1.png, id=35, 465.23813pt x 339.51843pt>
+<img/cap1.png, id=45, 465.23813pt x 339.51843pt>
 File: img/cap1.png Graphic file (type png)
 <use img/cap1.png>
-Package pdftex.def Info: img/cap1.png  used on input line 72.
+Package pdftex.def Info: img/cap1.png  used on input line 73.
 (pdftex.def)             Requested size: 360.6552pt x 263.18799pt.
-[2 <./img/diagrama_clases.png (PNG copy)>]
-<img/cap2.png, id=42, 429.10312pt x 240.14719pt>
+[3 <./img/diagrama_clases.png (PNG copy)>]
+<img/cap2.png, id=52, 429.10312pt x 240.14719pt>
 File: img/cap2.png Graphic file (type png)
 <use img/cap2.png>
-Package pdftex.def Info: img/cap2.png  used on input line 81.
+Package pdftex.def Info: img/cap2.png  used on input line 82.
 (pdftex.def)             Requested size: 317.75395pt x 177.82971pt.
-<img/cap3.png, id=43, 355.3275pt x 203.25937pt>
+<img/cap3.png, id=53, 355.3275pt x 203.25937pt>
 File: img/cap3.png Graphic file (type png)
 <use img/cap3.png>
-Package pdftex.def Info: img/cap3.png  used on input line 88.
+Package pdftex.def Info: img/cap3.png  used on input line 89.
 (pdftex.def)             Requested size: 261.14359pt x 149.37697pt.
- [3 <./img/cap1.png (PNG copy)> <./img/cap2.png (PNG copy)>]
-<img/cap4.png, id=50, 493.845pt x 469.00218pt>
+ [4 <./img/cap1.png (PNG copy)> <./img/cap2.png (PNG copy)>]
+<img/cap4.png, id=60, 493.845pt x 469.00218pt>
 File: img/cap4.png Graphic file (type png)
 <use img/cap4.png>
-Package pdftex.def Info: img/cap4.png  used on input line 97.
+Package pdftex.def Info: img/cap4.png  used on input line 98.
 (pdftex.def)             Requested size: 307.08498pt x 291.64075pt.
-<img/cap5.png, id=51, 959.08313pt x 390.70969pt>
+<img/cap5.png, id=61, 959.08313pt x 390.70969pt>
 File: img/cap5.png Graphic file (type png)
 <use img/cap5.png>
-Package pdftex.def Info: img/cap5.png  used on input line 104.
+Package pdftex.def Info: img/cap5.png  used on input line 105.
 (pdftex.def)             Requested size: 628.62114pt x 256.0748pt.
 
-Overfull \hbox (216.05617pt too wide) in paragraph at lines 104--105
+Overfull \hbox (216.05617pt too wide) in paragraph at lines 105--106
  [][] 
  []
 
-[4 <./img/cap3.png (PNG copy)> <./img/cap4.png (PNG copy)>]
-<img/cap6.png, id=58, 852.18375pt x 386.19281pt>
+[5 <./img/cap3.png (PNG copy)> <./img/cap4.png (PNG copy)>]
+<img/cap6.png, id=68, 852.18375pt x 386.19281pt>
 File: img/cap6.png Graphic file (type png)
 <use img/cap6.png>
-Package pdftex.def Info: img/cap6.png  used on input line 111.
+Package pdftex.def Info: img/cap6.png  used on input line 112.
 (pdftex.def)             Requested size: 565.05666pt x 256.0748pt.
 
-Overfull \hbox (152.49168pt too wide) in paragraph at lines 111--112
+Overfull \hbox (152.49168pt too wide) in paragraph at lines 112--113
  [][] 
  []
 
-<img/cap7.png, id=59, 877.77937pt x 394.47375pt>
+<img/cap7.png, id=69, 877.77937pt x 394.47375pt>
 File: img/cap7.png Graphic file (type png)
 <use img/cap7.png>
-Package pdftex.def Info: img/cap7.png  used on input line 118.
+Package pdftex.def Info: img/cap7.png  used on input line 119.
 (pdftex.def)             Requested size: 569.81317pt x 256.0748pt.
 
-Overfull \hbox (157.2482pt too wide) in paragraph at lines 118--119
+Overfull \hbox (157.2482pt too wide) in paragraph at lines 119--120
  [][] 
  []
 
-[5 <./img/cap5.png (PNG copy)> <./img/cap6.png (PNG copy)>]
-<img/cap8.png, id=66, 852.18375pt x 395.97937pt>
+[6 <./img/cap5.png (PNG copy)> <./img/cap6.png (PNG copy)>]
+<img/cap8.png, id=76, 852.18375pt x 395.97937pt>
 File: img/cap8.png Graphic file (type png)
 <use img/cap8.png>
-Package pdftex.def Info: img/cap8.png  used on input line 125.
+Package pdftex.def Info: img/cap8.png  used on input line 126.
 (pdftex.def)             Requested size: 551.10416pt x 256.0748pt.
 
-Overfull \hbox (138.53918pt too wide) in paragraph at lines 125--126
+Overfull \hbox (138.53918pt too wide) in paragraph at lines 126--127
  [][] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 130.
-[6 <./img/cap7.png (PNG copy)> <./img/cap8.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 130.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
+[7 <./img/cap7.png (PNG copy)> <./img/cap8.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
  (./informe.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 130.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 130.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
 Package rerunfilecheck Info: File `informe.out' has not changed.
 (rerunfilecheck)             Checksum: 817CD30CC8706480FB43B455FF780905;297.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 130.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 7458 strings out of 494861
- 108256 string characters out of 6178805
- 203864 words of memory out of 5000000
+ 7463 strings out of 494861
+ 108300 string characters out of 6178805
+ 202864 words of memory out of 5000000
  10664 multiletter control sequences out of 15000+600000
  8241 words of font info for 29 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
@@ -812,10 +816,10 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on informe.pdf (6 pages, 362856 bytes).
+Output written on informe.pdf (7 pages, 367647 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 23 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
