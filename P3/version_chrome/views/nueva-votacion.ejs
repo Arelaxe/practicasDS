@@ -1,0 +1,71 @@
+<%- include('head') -%>
+    <h1>Nueva votación</h1>
+    
+	<body>
+        <form id="select-plantilla">
+            <label for="nombre-votacion">Nombre</label>
+            <input name="nombre" id="nombre-votacion" type="text"/> <br/> <br/> <br/>
+            <label for="plantillas">Seleccione una plantilla:</label>
+            <select name="plantilla" id="plantillas">
+            </select><br /><br/> <br/>
+            <label for="hora-ini">Hora de inicio</label>
+            <input name="hora_ini" id="hora-ini" type="datetime-local"/> <br/><br/>
+            <label for="hora-fin">Hora de finalización</label>
+            <input name="hora_fin" id="hora-fin" type="datetime-local"/> <br/> <br/> <br/>
+            <input type="button" value="Establecer votación"/ onclick="enviar()">
+        </form>
+        
+        <div id="sala-asignada"></div>
+
+        <p>Volver al <a href="index">menú principal</a></p>
+	</body>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+
+        var serviceURL = document.URL;
+		var socket = io.connect('http://localhost:3000');
+    
+        function setPlantillas(plantillas){
+            document.getElementById('plantillas').innerHTML = "";
+            var str = "";
+            for (var i=0; i<plantillas.length; i++){
+                console.log(plantillas[i]);
+                str += "<option id=\""+ plantillas[i].nombre +"\">"+ plantillas[i].nombre +"</option>";
+            }
+            document.getElementById('plantillas').innerHTML = str;
+        }
+
+		function enviar(){
+            var hora_ini = document.getElementById('hora-ini').value;
+            var hora_fin = document.getElementById('hora-fin').value;
+
+            if (hora_ini == "" || hora_fin == ""){
+                alert("Datos introducidos no válidos");
+            }
+            else if (new Date(hora_ini) < Date.now()){
+                alert("La fecha de inicio no es válida");
+            }
+            else if (new Date(hora_fin) < new Date(hora_ini)){
+                alert("La fecha de finalización no es válida");
+            }
+            else{
+                document.getElementById('select-plantilla').method = "post";
+                document.getElementById('select-plantilla').action = "/nueva-votacion";
+                document.getElementById('select-plantilla').submit();
+            }
+        }
+        
+        socket.on('cargar-plantillas', function(data){
+            console.log(data);
+            setPlantillas(data.data);
+        });
+
+        socket.on('establecer-sala', function(data){
+            console.log(data);
+            document.getElementById('sala-asignada').innerHTML = "El código de la sala asignada es " + data.codigo;
+        });
+
+	</script>
+	
+    <%- include('foot') -%>

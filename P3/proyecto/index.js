@@ -118,7 +118,6 @@ app.get('/votacion', function(req, res){
 		else if (new Date(salas[req.query.id_sala].hora_fin) < Date.now()){
 			req.session.error = "La votación ya ha finalizado";
 			res.redirect('/index');
-		}
 		*/
 		else{
 			var listaUsers = salas[req.query.id_sala].users['nombre'];
@@ -282,7 +281,7 @@ MongoClient.connect("mongodb://localhost:27017/", function(err, db) {
 			// con el menor código y que tuviese una votación expirada
 			var codigo = -1;
 			for (var i=0; i<salas.length; i++){
-				if (salas[i] == undefined || salas[i].fecha_fin < Date.now)
+				if (salas[i] == undefined /*|| new Date(salas[i].hora_fin) < Date.now()*/)
 					codigo = i;
 			}
 			if (codigo == -1)
@@ -326,8 +325,8 @@ MongoClient.connect("mongodb://localhost:27017/", function(err, db) {
 
 					for (var i=0; i<results.length; i++){
 						
-						if (results[i].informacion.users['nombre'][0] == req.session.user &&
-							new Date(results[i].informacion.hora_fin) > Date.now())
+						if (results[i].informacion.users['nombre'][0] == req.session.user/* &&
+							new Date(results[i].informacion.hora_fin) > Date.now()*/)
 							votaciones.push({cod: results[i].codigo, nombre: results[i].informacion.nombre});
 					}
 					res.render('consultar-votaciones', {votaciones: votaciones});

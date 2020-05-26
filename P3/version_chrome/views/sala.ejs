@@ -1,0 +1,37 @@
+<%- include('head') -%>
+
+	<h1>Sala</h1>
+	<h2>Votación actual: <%= sala.nombre %></h2>
+	<body>
+		<div id="resultados">
+		<% for(var i=0; i<plantilla.preguntas.length; i++) {%>
+			<b><div class="preguntas"><%= plantilla.preguntas[i].contenido %></div></b> <br/>
+
+			<% for (var j=0; j<plantilla.preguntas[i].alternativas.length; j++) {%>
+				<div class="alternativas"><%= plantilla.preguntas[i].alternativas[j] %>
+					<div id="<%= 'alt'+j+'-preg'+i %>"><%= sala.resultados[i][j]%></div>
+				</div>
+			<% }%>
+			<br/><br/>
+		<% }%>
+		</div>
+	</body>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		var serviceURL = document.URL;
+		var socket = io.connect('http://localhost:3000');
+
+		function render(preg, alt){
+			var value = document.getElementById('alt'+alt+"-preg"+preg).innerHTML;
+			value++;
+			console.log(value);
+			document.getElementById('alt'+alt+"-preg"+preg).innerHTML = value;
+        }
+		socket.on('update-values', function(data) {
+			console.log(data);
+			render(data.preg, data.alt);
+		});
+	</script>
+
+<%- include('foot') -%>

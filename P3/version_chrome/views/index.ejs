@@ -1,0 +1,43 @@
+<%- include('head') -%>
+	<h1>Página principal</h1>
+	
+	<body>
+		<%- message %> <br/>
+		<p>¿Quiere desloguearse? Pulse <a href="logout">aquí</a>.</p>
+		<form id="form-principal" method="get">
+			<label for="sala">Seleccione el código de la sala:</label> <br/>
+			<input type="text" name="id_sala" id="sala"/><br/> <br/>
+			
+			<input id="voting" type="submit" value="Votar" onclick="enviar(this.id)"/>
+			<input id="access" type="submit" value="Acceder a sala" onclick="enviar(this.id)"/><br/><br/>
+		</form>
+		<br/>
+
+		<form id="form-crear-votacion" action="nueva-votacion">
+			<input type="submit" value="Crear votacion"/><br/><br/>
+		</form>
+
+		<form id="form-crear-plantilla" action="nueva-plantilla">
+			<input type="submit" value="Crear plantilla"/><br/><br/>
+		</form>
+
+		<form id="form-cons-votaciones" action="consultar-votaciones">
+			<input type="submit" value="Consultar mis votaciones"/><br/><br/>
+		</form>
+	</body>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		function enviar(id){
+			var id_sala = document.getElementById('sala').value;
+
+			if (id == "voting")
+				document.getElementById('form-principal').action = "votacion?id="+id_sala;
+			else if (id == "access")
+				document.getElementById('form-principal').action = "sala?id="+id_sala;
+
+			document.getElementById('form-principal').submit();
+		}
+	</script>
+
+<%- include('foot') -%>

@@ -1,0 +1,65 @@
+<%- include('head') -%>
+
+	<h1>Votación <%= sala.nombre %></h1>
+	
+	<body>
+		<% for(var i=0; i<plantilla.preguntas.length; i++) {%>
+			<form id="<%= 'form-preg'+i %>" action="javascript:void(0);" onsubmit="javascript:enviar(this.id)">
+				<%= plantilla.preguntas[i].contenido %><br/>
+
+				<select id="<%= 'preg'+i %>">
+				<% for (var j=0; j<plantilla.preguntas[i].alternativas.length; j++){ %>
+					<option><%= plantilla.preguntas[i].alternativas[j] %></option>
+				<% } %>
+				</select>
+				
+
+				<input type="submit" value="Votar"/><br/><br/>
+			</form>
+		<% } %>
+	</body>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		var serviceURL = document.URL;
+		console.log(serviceURL);
+		var socket = io.connect('http://localhost:3000');
+		
+		function enviar(id) {
+			var indPreg = parseInt(id.replace("form-preg",""),10);
+			var cod = window.location.search.substr(1).split("=")[1];
+			
+			console.log(indPreg);
+			var indAlt = document.getElementById("preg"+indPreg).selectedIndex;
+			socket.emit('add-vote', {cod: cod ,preg: indPreg, alt: indAlt});
+			
+			document.getElementById(id).style.display = 'none';
+		}
+
+		socket.on('initialize-values', function(data){
+			var numPreg = data.data.preguntas.length;
+			var numAlter = 0;
+
+			var str="";
+
+			for (var i=0; i<numPreg; i++){
+				numAlter = data.data.preguntas[i].alternativas.length;
+				console.log(numAlter);
+
+				str += "<form id=\"form-preg-" + i + "\" action=\"javascript:void(0);\" onsubmit=\"javascript:enviar("+i+");\">";
+				str += data.data.preguntas[i].contenido+"<br/>";
+				str +="<select id=\"preg"+i+"\">";
+
+				for (var j=0; j<numAlter; j++){
+					str += "<option>"+data.data.preguntas[i].alternativas[j]+"</option>";
+				}
+				str+="</select>";
+				str+="<input type=\"submit\" value=\"Votar\">";
+				str+="</form>";
+			}
+
+			document.getElementById('content').innerHTML = str;
+		});
+	</script>
+
+<%- include('foot') -%>
